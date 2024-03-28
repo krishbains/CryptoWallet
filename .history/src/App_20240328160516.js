@@ -7,9 +7,9 @@ function App() {
   return (
     <div className="App">
       {/* uncomment these to see what each page looks like, we will implement routing across all pages, soon enough */}
-      <BasePage/>
+      {/* <BasePage/> */}
       {/* <StartingPage/> */}
-      {/* <CreateWallet /> */}
+      <CreateWallet />
     </div>
   );
 }

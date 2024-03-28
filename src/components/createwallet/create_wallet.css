@@ -1,0 +1,152 @@
+:root {
+    --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+      "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+      "Source Han Sans CN", sans-serif;
+  }
+  
+  .main-container {
+    overflow: hidden;
+  }
+  
+  .main-container,
+  .main-container * {
+    box-sizing: border-box;
+  }
+  
+  input,
+  select,
+  textarea,
+  button {
+    outline: 0;
+  }
+  
+  .main-container {
+    position: relative;
+    width: 390px;
+    height: 844px;
+    margin: 0 auto;
+  }
+  .main-frame-background1 {
+    position: absolute;
+    width: 390px;
+    height: 844px;
+    top: 0;
+    left: 0;
+    background: #bfc9ff;
+    z-index: 1;
+    border-radius: 7px;
+  }
+  .main-frame {
+    position: relative;
+    width: 356px;
+    height: 311px;
+    margin: 265px 0 0 18px;
+    font-size: 0px;
+    background: #222222;
+    z-index: 3;
+    overflow: visible auto;
+    border-radius: 7px;
+  }
+  .create-password {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    width: 221.545px;
+    height: 29px;
+    margin: 12px 0 0 67.236px;
+    color: #ffffff;
+    font-family: Inter, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 4;
+  }
+  .password-input {
+    position: relative;
+    width: 335.366px;
+    height: 41px;
+    margin: 46px 0 0 10.325px;
+    background: #181818;
+    border: 1px solid #2e2e2e;
+    z-index: 9;
+    border-radius: 5px;
+    box-sizing: content-box;
+  }
+  .password-input-1 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 19px;
+    top: 11px;
+    left: 21.341px;
+    color: #606060;
+    font-family: Inter, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16.943px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 10;
+  }
+  .confirm-password-input {
+    position: relative;
+    width: 330px;
+    height: 41px;
+    margin: 19px 0 0 10.325px;
+    background: #181818;
+    border: 1px solid #2e2e2e;
+    z-index: 13;
+    border-radius: 5px;
+    box-sizing: content-box;
+  }
+  .confirm-password {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 19px;
+    top: 11px;
+    left: 21px;
+    color: #606060;
+    font-family: Inter, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16.943px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 14;
+  }
+  .continue-button {
+    position: relative;
+    width: 332.317px;
+    height: 41px;
+    margin: 61px 0 0 13.374px;
+    background: #2c2c2c;
+    border: 1px solid #2e2e2e;
+    z-index: 6;
+    border-radius: 5px;
+    box-sizing: content-box;
+  }
+  .continue {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 14.426px;
+    top: 14px;
+    left: 135.163px;
+    color: #a7a7a7;
+    font-family: Inter, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14.426px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 7;
+  }
+  
