@@ -1,25 +1,47 @@
 import React from 'react';
 import "./base_page.css"
+import useMetaMask from '../hooks/metaMaskHook';
+import { Link} from 'react-router-dom';
+import Animate_page from '../../Animate-page';
 
 export default function BasePage() {
+    const {
+      web3,
+      account,
+      balance,
+      receiver,
+      amount,
+      message,
+      transactionHistory,
+      loading,
+      error,
+      sendTransaction,
+      handleInputChange,
+    } = useMetaMask();
   return (
+    <Animate_page>
     <div className='main-container'>
       <div className='main-frame-background'>
         <div className='account-bar'>
           <span className='account'>Account123</span>
           <div className='vector' />
         </div>
+        <Link to="/transactionhistory">
         <div className='rectangle'>
           <div className='flex-column-be'>
             <span className='current-balance'>Current Balance</span>
-            <span className='currency'>£1575.53</span>
+            <span className='currency'>{Math.floor(parseFloat(balance) * 100) / 100} ETH</span>
           </div>
+          
           <span className='percentage'>10.2%</span>
           <div className='arrow-up' />
         </div>
+        </Link>
         <div className='flex-row-afb'>
           <div className='transfer-button'>
-            <span className='transfer'>Transfer</span>
+            <Link to="/sendpage">
+            <span className='transfer'>Send</span>
+            </Link>
           </div>
           <div className='deposit-button'>
             <span className='deposit'>Deposit</span>
@@ -80,5 +102,6 @@ export default function BasePage() {
         </div>
       </div>
     </div>
+    </Animate_page>
   );
 }

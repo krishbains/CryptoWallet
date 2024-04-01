@@ -1,0 +1,143 @@
+:root {
+  --default-font-family1: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei", "Source Han Sans CN", sans-serif;
+}
+
+.main-container1 {
+  overflow: hidden;
+}
+
+.main-container1,
+.main-container1 * {
+  box-sizing: border-box;
+}
+
+input1,
+select1,
+textarea1,
+button1 {
+  outline: 0;
+}
+
+.main-container1 {
+  position: relative;
+  width: 375px;
+  height: 812px;
+  margin: 0 auto;
+}
+
+.main-frame-background1 {
+  position: relative;
+  width: 374.944px;
+  height: 812px;
+  margin: 0 0 0 0;
+  background: #262626;
+  z-index: 1;
+  overflow: visible auto;
+  border-radius: 7px;
+}
+
+.account-bar1 {
+  position: relative;
+  width: 375px;
+  height: 58px;
+  margin: 0 0 0 0;
+  background: #222222;
+  z-index: 3;
+  border-radius: 7px 7px 0 0;
+}
+
+.account1 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  height: 47.455px;
+  top: 5.273px;
+  left: 128.397px;
+  color: #ffffff;
+  font-family: Kantumruy, var(--default-font-family1);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 36.133px;
+  text-align: left;
+  white-space: nowrap;
+  z-index: 4;
+}
+
+.vector1 {
+  position: absolute;
+  width: 7.07%;
+  height: 40.91%;
+  top: 29.55%;
+  left: 4.62%;
+  background: url(../assets/images/45246d70-5334-4404-8daa-30d76e51f1e5.png) no-repeat center;
+  background-size: 100% 100%;
+  z-index: 6;
+}
+
+.rectangle1 {
+  position: relative;
+  width: 329.601px;
+  height: 55.636px;
+  margin: 26.364px 0 0 24px;
+  background: #74dd98;
+  border: 2px solid #2e2e2e;
+  z-index: 10;
+  border-radius: 16px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.transaction-history1 {
+  position: absolute;
+  width: 76.23%;
+  height: 68.22%;
+  bottom: -30.84%;
+  left: 12.78%;
+  cursor: pointer;
+  color: #272727;
+  font-family: Poppins, var(--default-font-family1);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+  white-space: nowrap;
+  background: transparent;
+  border: none;
+  z-index: 11;
+}
+
+.transaction-details-background1 {
+  position: relative;
+  width: 350px;
+  height: 558px;
+  margin: 33px 0 0 14px;
+  background: url(../assets/images/080edce0-6464-4538-901a-cff2fcb1b786.png) no-repeat center;
+  background-size: cover;
+  z-index: 8;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+.transaction-list1 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transaction-item1 {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.transaction-item1 p {
+  margin: 5px 0;
+  color: #ffffff;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.transaction-item1 p:first-child {
+  font-weight: bold;
+}
