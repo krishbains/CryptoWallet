@@ -33,7 +33,7 @@
     height: 844px;
     top: 0;
     left: 0;
-    background: #bfc9ff;
+    background: #212125;
     z-index: 1;
     border-radius: 7px;
   }
@@ -43,12 +43,12 @@
     height: 311px;
     margin: 265px 0 0 18px;
     font-size: 0px;
-    background: #222222;
+    background: #22222246;
     z-index: 3;
     overflow: visible auto;
     border-radius: 7px;
   }
-  .create-password {
+  .login {
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -58,7 +58,7 @@
     margin: 12px 0 0 67.236px;
     color: #ffffff;
     font-family: Inter, var(--default-font-family);
-    font-size: 24px;
+    font-size: 34px;
     font-weight: 600;
     line-height: 29px;
     text-align: center;
@@ -83,8 +83,10 @@
     position: absolute;
     height: 19px;
     top: 11px;
-    left: 21.341px;
+    left: 21px;
+    border: none;
     color: #606060;
+    background: #181818; /* Change background color to black */
     font-family: Inter, var(--default-font-family);
     font-size: 14px;
     font-weight: 600;
@@ -92,10 +94,11 @@
     text-align: left;
     white-space: nowrap;
     z-index: 10;
+    width: calc(100% - 42px); /* Set width to match black box */
   }
   .confirm-password-input {
     position: relative;
-    width: 330px;
+    width: 335.366px;
     height: 41px;
     margin: 19px 0 0 10.325px;
     background: #181818;
@@ -112,7 +115,9 @@
     height: 19px;
     top: 11px;
     left: 21px;
+    border: none;
     color: #606060;
+    background: #181818; /* Change background color to black */
     font-family: Inter, var(--default-font-family);
     font-size: 14px;
     font-weight: 600;
@@ -120,8 +125,9 @@
     text-align: left;
     white-space: nowrap;
     z-index: 14;
+    width: calc(100% - 42px); /* Set width to match black box */
   }
-  .continue-button {
+  /* .continue-button {
     position: relative;
     width: 332.317px;
     height: 41px;
@@ -148,5 +154,33 @@
     text-align: left;
     white-space: nowrap;
     z-index: 7;
+  } */
+
+  .continue-button {
+    position: relative;
+    width: 335.366px; /* Ensure the button width matches the input fields */
+    height: 41px;
+    margin: 61px 0 0 10.325px; /* Adjust margin as needed */
+    background: #2c2c2c;
+    border: 1px solid #2e2e2e;
+    z-index: 6;
+    border-radius: 5px;
+    box-sizing: content-box;
+    cursor: pointer; /* Add cursor pointer to indicate it's clickable */
   }
   
+  .continue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Ensure the text spans the entire width of the button */
+    height: 100%;
+    color: black;
+    font-family: Inter, var(--default-font-family);
+    font-size: 22px;
+    font-weight: 600;
+    background-color: #74dd98;
+    border: none;
+    text-align: center;
+    white-space: nowrap;
+  }

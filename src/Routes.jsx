@@ -1,6 +1,8 @@
-import BasePage from "./components/basepage/basepage.jsx";
-import TransactionHistoryPage from "./components/transactionpage/transactionHistoryPage.jsx";
+// import BasePage from "./components/basepage/basepage.jsx";
+// import TransactionHistoryPage from "./components/transactionpage/transactionHistoryPage.jsx";
 import SendPage from "./components/sendpage/sendpage.jsx";
+// import CreateWallet from "./components/createwallet/createwallet.jsx";
+import BasePageDesktop from "./components/basepage/basepagedesktop.jsx";
 import {
   BrowserRouter as Router,
   Routes,
@@ -18,9 +20,10 @@ export const AppRoute = () =>{
           <AnimatePresence>
             <Router>
               <Routes>
-                <Route path="/" exact element={<BasePage/>}/>
+                <Route path="/" exact element={<BasePageDesktop/>}/>
                 <Route path="/sendpage" exact element={<SendPage />}/>
-                <Route path="/transactionhistory" exact element={<TransactionHistoryPage />}/>
+                {/* <Route path="/transactionhistory" exact element={<TransactionHistoryPage />}/>
+                <Route path="/login" exact element= {<CreateWallet />}/> */}
               </Routes>
             </Router>
           </AnimatePresence>

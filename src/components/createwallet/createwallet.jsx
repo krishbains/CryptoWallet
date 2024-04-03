@@ -1,23 +1,45 @@
 import React from 'react';
-import './create_wallet.css';
+import { CSVDownload } from 'react-csv';
+import "./create_wallet.css";
 
 export default function CreateWallet() {
+  const [data, setData] = React.useState(null); // State to hold CSV data
+
+  const writeToCSV = (email, password) => {
+    const newData = [[email, password]]; // Convert email and password to CSV format
+    setData(newData); // Set data to trigger download
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Collect input values
+    const email = event.target.elements.email.value;
+    const password = event.target.elements.password.value;
+
+    // Call writeToCSV with email and password
+    writeToCSV(email, password);
+  };
+
   return (
-    <div className='main-container'>
-      <div className='main-frame-background1'>
-        <div className='main-frame'>
-          <span className='create-password'>Create a password</span>
-          <div className='password-input'>
-            <span className='password-input-1'>Password</span>
-          </div>
-          <div className='confirm-password-input'>
-            <span className='confirm-password'>Confirm Password</span>
-          </div>
-          <div className='continue-button'>
-            <span className='continue'>Continue</span>
+    <form onSubmit={handleSubmit}>
+      <div className='main-container'>
+        <div className='main-frame-background1'>
+          <div className='main-frame'>
+            <span className='login'>Login</span>
+            <div className='password-input'>
+              <input className='password-input-1' name="email" type="text" placeholder="Enter your email"/>
+            </div>
+            <div className='confirm-password-input'>
+              <input className='confirm-password' name="password" type="text" placeholder="Enter your password"/>
+            </div>
+            <div className='continue-button'>
+              <button className='continue'>Login</button>
+            </div>
           </div>
         </div>
+        {data && <CSVDownload data={data} filename="database.csv" />} {/* Render CSVDownload component */}
       </div>
-    </div>
+    </form>
   );
 }

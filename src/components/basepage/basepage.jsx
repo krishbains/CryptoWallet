@@ -24,7 +24,9 @@ export default function BasePage() {
       <div className='main-frame-background'>
         <div className='account-bar'>
           <span className='account'>Account123</span>
+          <Link to="/login">
           <div className='vector' />
+          </Link>
         </div>
         <Link to="/transactionhistory">
         <div className='rectangle'>
