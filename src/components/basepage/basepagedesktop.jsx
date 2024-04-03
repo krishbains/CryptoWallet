@@ -51,7 +51,7 @@ const {
         </div>
         <div className='holdings-background'>
             <div className='flex-column-fec'>
-            <span className='holdings'>Holdings</span>
+            <span className='holdings'>Live Market Data</span>
             <span className='ethereum'>Ethereum</span>
             <div className='eth-icon' />
             <span className='eth'>ETH</span>

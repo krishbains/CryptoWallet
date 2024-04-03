@@ -9,6 +9,7 @@ import {
   Route,
 } from "react-router-dom";
 import { AnimatePresence } from 'framer-motion';
+import Dashboard from "./components/Dashboard/Dashboard.js";
 
 
 export const AppRoute = () =>{
@@ -22,6 +23,7 @@ export const AppRoute = () =>{
               <Routes>
                 <Route path="/" exact element={<BasePageDesktop/>}/>
                 <Route path="/sendpage" exact element={<SendPage />}/>
+                <Route path="/Dashboard" exact element={<Dashboard />}/>
                 {/* <Route path="/transactionhistory" exact element={<TransactionHistoryPage />}/>
                 <Route path="/login" exact element= {<CreateWallet />}/> */}
               </Routes>
