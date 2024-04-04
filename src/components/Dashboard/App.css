@@ -19,7 +19,7 @@ body {
 .news-ticker {
   font-size: 0.9em; /* Adjust the font size */
   padding: 5px; /* Adjust the padding */
-  background-color: #f9f9f9;
+  background-color: #b10000;
   text-decoration: none;
   display: inline-block;
   margin-right: 10px;
@@ -43,7 +43,7 @@ body {
   margin: 2;
   font-size: 0.7em; /* Adjust the font size */
   text-align: left; /* Align the text to the left */
-  color: rgba(25, 10, 245, 0.932);
+  color: rgba(18, 15, 4, 0.932);
 }
 
 h1, h2, h3 {

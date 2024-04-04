@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Marquee from 'react-marquee-slider';
+import "./App.css"
 
 function NewsTicker() {
   const [news, setNews] = useState([]);
@@ -29,7 +30,7 @@ function NewsTicker() {
   }
 
   return (
-    <Marquee velocity={1}>
+    <Marquee velocity={0.5}>
       {news.map((article, index) => (
         <a key={`marquee-example-news-${index}`} href={article.url} target="_blank" rel="noopener noreferrer" className="news-ticker">
           <h1>{article.description}</h1>

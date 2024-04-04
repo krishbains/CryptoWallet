@@ -45,7 +45,7 @@
     height: 51.429px;
     margin: 0 0 0 0.09px;
     background: #222222;
-    z-index: 3;
+    z-index: 300;
     border-radius: 7px 7px 0 0;
   }
   .account {
@@ -74,7 +74,7 @@
     background: url(../assets/images/ea15f2d9-66e4-4758-b099-c882dd2cbd37.png)
       no-repeat center;
     background-size: 100% 100%;
-    z-index: 5;
+    z-index: 50;
   }
   .rectangle {
     position: relative;
@@ -687,4 +687,79 @@
     background-size: cover;
     z-index: 9;
   }
-  
+  .drawer-sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px; /* Adjust width as needed */
+    height: 100%;
+    background-color: #333; /* Background color of the drawer */
+    z-index: 100; /* Ensure it's above other content */
+    transition: transform 0.1s ease-out; /* Add animation for smooth transition */
+    transform: translateX(0); /* Initially hide the drawer */
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Align items at the center horizontally */
+}
+
+.drawer_object1,
+.drawer_object2 {
+    margin: 10px 0; /* Add some margin between items */
+    color: #fff; /* Text color */
+    font-size: 18px; /* Adjust font size */
+    text-decoration: none; /* Remove underline */
+}
+.drawer_object1:hover,
+.drawer_object2:hover {
+  color: #ccc; /* Change text color on hover */
+}
+
+.drawer_object1{
+  margin-top: 100px;
+}
+
+.help-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%; /* Adjust the width as needed */
+  height: 60%; /* Adjust the height as needed */
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+  z-index: 9999; /* Ensure it's above other content */
+  justify-content: center;
+  align-items: center;
+}
+
+.help-content {
+  text-align: center;
+  background: url(../assets/images/Send_transactions.png)no-repeat center;
+  background-size:contain;
+}
+
+/* .help-image {
+  max-width: 80%;
+  max-height: 80%;
+  background: url(../assets/images/d5997525-0663-4222-abc1-fc61b4bf08c3.png)
+    no-repeat center;
+} */
+
+.next-button {
+  padding: 10px 20px;
+  margin-top: 45%;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.prev-button {
+  padding: 10px 20px;
+  margin-top: 45%;
+  margin-left: -85%; /* Adjust the margin to position it on the left end */
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
