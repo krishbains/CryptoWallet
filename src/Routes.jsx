@@ -1,33 +1,47 @@
 // import BasePage from "./components/basepage/basepage.jsx";
+import React, { useState ,useContext,useEffect} from 'react';
 import TransactionHistoryPage from "./components/transactionpage/transactionHistoryPage.jsx";
 import SendPage from "./components/sendpage/sendpage.jsx";
-// import CreateWallet from "./components/createwallet/createwallet.jsx";
+// import CreateWallet from "./components/createwallet/Login.jsx";
+import Login from "./components/createwallet/Login.jsx";
 import BasePageDesktop from "./components/basepage/basepagedesktop.jsx";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import Register from "./components/createwallet/Register.jsx";
+import {BrowserRouter as Router,Routes, Route,Navigate } from "react-router-dom";
 import { AnimatePresence } from 'framer-motion';
 import Dashboard from "./components/Dashboard/Dashboard.js";
+import axios from 'axios';
+import {Toaster} from 'react-hot-toast'
+import{UserContextProvider} from "./context/userContext.jsx"
+import { UserContext } from './context/userContext';
 
+
+
+
+
+axios.defaults.baseURL= 'http://localhost:8000';
+axios.defaults.withCredentials = true
 
 export const AppRoute = () =>{
+  const {user} = useContext(UserContext)
+
+  
     return (
-      //This function carries out all the routing between the pages and organises
-      //them in a file directory manner.
-      //It imports all page components so that it can redirect them
+
         <div>
           <AnimatePresence>
+            <UserContextProvider>
+            <Toaster position="bottom-right" toastOptions={{duration: 2000}}/>
             <Router>
               <Routes>
-                <Route path="/" exact element={<BasePageDesktop/>}/>
+              <Route path="/" exact element={<BasePageDesktop/>}/>
+                <Route path="/login" exact element={<Login/>}/>
+                <Route path="/register" exact element={<Register/>}/>
                 <Route path="/sendpage" exact element={<SendPage />}/>
                 <Route path="/Dashboard" exact element={<Dashboard />}/>
                 <Route path="/transactionhistory" exact element={<TransactionHistoryPage />}/>
-                {/* <Route path="/login" exact element= {<CreateWallet />}/> */}
               </Routes>
             </Router>
+            </UserContextProvider>
           </AnimatePresence>
         </div>
     );

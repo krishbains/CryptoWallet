@@ -1,15 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState ,useContext,useEffect} from 'react';
 import './basepage_desktop.css';
 import useMetaMask from '../hooks/metaMaskHook';
 import { Link } from 'react-router-dom';
 import Animate_page from '../../Animate-page';
 import { motion, AnimatePresence } from 'framer-motion';
+import { UserContext } from '../../context/userContext';
+import axios from "axios"
+import { useNavigate } from 'react-router-dom';
 
 export default function BasePageDesktop() {
+
+    const navigate = useNavigate()
+
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [showHelpOverlay, setShowHelpOverlay] = useState(false);
     const [backgroundIndex, setBackgroundIndex] = useState(0);
+    const [isCheckingUser, setIsCheckingUser] = useState(true);
 
+    const {user, setUser} = useContext(UserContext)
+
+
+    useEffect(() => {
+        // Delay the user check for 3 seconds
+        const timer = setTimeout(() => {
+            setIsCheckingUser(false); // Update state to indicate check complete after 3 seconds
+        }, 10);
+
+        // Clear the timer if component unmounts or if user is found
+        return () => clearTimeout(timer);
+    }, []); // Run only once on component mount
+
+    useEffect(() => {
+        // If user is still being checked, do not proceed
+        if (isCheckingUser) return;
+
+        // User check complete, now redirect if user is not authenticated
+        if (!user) {
+            navigate('/login');
+        }
+    }, [user, isCheckingUser, navigate]);
+    
     const toggleDrawer = () => {
         setIsDrawerOpen(!isDrawerOpen);
     };
@@ -18,6 +48,16 @@ export default function BasePageDesktop() {
         setShowHelpOverlay(!showHelpOverlay);
     };
 
+    const handleSignOut = async () => {
+        try {
+            await axios.post('/logout'); // Assuming your logout endpoint is at /logout
+            setUser(null); // Set user in context to null
+            // Optionally, redirect to login page
+        } catch (error) {
+            console.error('Error during logout:', error);
+            // Handle errors appropriately, e.g., display an error message to the user
+        }
+    };
     const nextBackground = () => {
         if (backgroundIndex + 1 >= backgroundImages.length) {
             // If index exceeds length, toggle help overlay
@@ -46,13 +86,19 @@ export default function BasePageDesktop() {
         balance,
     } = useMetaMask();
 
+    // // Render loading state if user context is not available
+    // if (!user) {
+    //     return <div>Loading...</div>;
+    // }
+
     return (
         <Animate_page>
             <div className="Background">
                 <div className="main-container">
                     <div className="main-frame-background">
                         <div className="account-bar">
-                            <span className="account">Account123</span>
+                            <span className="account">{user && (user.username)}</span>
+                            {user && console.log("username is", user.username)}
                             <div className="vector" onClick={toggleDrawer} />
                         </div>
                         {/* Drawer Sidebar */}
@@ -65,7 +111,7 @@ export default function BasePageDesktop() {
                                     exit={{ x: -200 }}
                                 >
                                     {/* Add your drawer content here */}
-                                    <span className='drawer_object1'>Sign out</span>
+                                    <span className='drawer_object1' onClick={handleSignOut}>Sign out</span>
                                     <span className='drawer_object2'onClick={handleHelpClick}>Help</span>
                                 </motion.div>
                             )}
