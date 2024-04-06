@@ -5,8 +5,12 @@ const {test, registerUser,loginUser,getProfile, logoutUser} = require('./authCon
 
 router.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: ['http://localhost:3000', 'https://api.coingecko.com'],
+    methods: ["GET", "POST", "PUT", "DELETE"], // Add methods allowed by your server
+    allowedHeaders: ["Content-Type", "Authorization"], // Add headers allowed by your server
+    
 }));
+
 
 router.get('/', test)
 router.post('/register', registerUser)

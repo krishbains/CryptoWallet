@@ -8,7 +8,23 @@ import './App.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-function Dashboard() {
+function Dashboard({ axiosInstance }) {
+
+  useEffect(() => {
+    // Example request using the axios instance passed via props
+    axios.get('/Dashboard')
+      .then(response => {
+        console.log('data is', response.data);
+        // Handle response data
+      })
+      .catch(error => {
+        console.error('Error fetching dashboard data:', error);
+        // Handle error
+      });
+  }, [axios]);
+
+
+
     const [coins, setCoins] = useState([]);
     const [selectedCoin, setSelectedCoin] = useState(null);
     const [history, setHistory] = useState([]);
@@ -27,7 +43,7 @@ function Dashboard() {
     const holdings = useMemo(() => holdingsData, []);
   
     useEffect(() => {
-      axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${holdings.map(holding => holding.id).join(',')}`, {
+      axiosInstance.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${holdings.map(holding => holding.id).join(',')}`, {
         headers: {
           'X-CoinAPI-Key': api_key
         }
@@ -62,7 +78,7 @@ function Dashboard() {
       while (date <= endDate) {
         const formattedDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
     
-        const promise = axios.get(`http://localhost:3000/api/v3/coins/${id}/history?date=${formattedDate}`, {
+        const promise = axiosInstance.get(`http://localhost:3000/api/v3/coins/${id}/history?date=${formattedDate}`, {
           headers: {
             'X-CoinAPI-Key': api_key
           }
@@ -90,7 +106,7 @@ function Dashboard() {
     return (
       <div className="App">
         <header className="App-header">
-          <NewsTicker />
+          <NewsTicker axiosInstance={axiosInstance}/>
           <h1>Crypto Dashboard</h1>
           {loading ? (
             <p style={{color: 'white'}}>Loading...</p>

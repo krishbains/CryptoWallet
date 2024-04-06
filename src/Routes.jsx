@@ -1,8 +1,6 @@
-// import BasePage from "./components/basepage/basepage.jsx";
 import React, { useState ,useContext,useEffect} from 'react';
 import TransactionHistoryPage from "./components/transactionpage/transactionHistoryPage.jsx";
 import SendPage from "./components/sendpage/sendpage.jsx";
-// import CreateWallet from "./components/createwallet/Login.jsx";
 import Login from "./components/createwallet/Login.jsx";
 import BasePageDesktop from "./components/basepage/basepagedesktop.jsx";
 import Register from "./components/createwallet/Register.jsx";
@@ -20,10 +18,15 @@ import { UserContext } from './context/userContext';
 
 axios.defaults.baseURL= 'http://localhost:8000';
 axios.defaults.withCredentials = true
+const createDashboardAxios = () => {
+  return axios.create({
+    baseURL: 'http://localhost:8000',
+    withCredentials: false, // Disable credentials for Dashboard
+  });
+};
 
 export const AppRoute = () =>{
   const {user} = useContext(UserContext)
-
   
     return (
 
@@ -37,7 +40,7 @@ export const AppRoute = () =>{
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path="/register" exact element={<Register/>}/>
                 <Route path="/sendpage" exact element={<SendPage />}/>
-                <Route path="/Dashboard" exact element={<Dashboard />}/>
+                <Route path="/Dashboard" exact element={<Dashboard axiosInstance={createDashboardAxios()} />}/>
                 <Route path="/transactionhistory" exact element={<TransactionHistoryPage />}/>
               </Routes>
             </Router>

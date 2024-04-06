@@ -24,7 +24,7 @@ export default function BasePageDesktop() {
         // Delay the user check for 3 seconds
         const timer = setTimeout(() => {
             setIsCheckingUser(false); // Update state to indicate check complete after 3 seconds
-        }, 10);
+        }, 100);
 
         // Clear the timer if component unmounts or if user is found
         return () => clearTimeout(timer);
