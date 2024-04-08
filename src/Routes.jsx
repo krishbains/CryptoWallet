@@ -20,7 +20,7 @@ axios.defaults.baseURL= 'http://localhost:8000';
 axios.defaults.withCredentials = true
 const createDashboardAxios = () => {
   return axios.create({
-    baseURL: 'http://localhost:8000',
+    baseURL: 'http://localhost:3000',
     withCredentials: false, // Disable credentials for Dashboard
   });
 };
@@ -36,7 +36,7 @@ export const AppRoute = () =>{
             <Toaster position="bottom-right" toastOptions={{duration: 2000}}/>
             <Router>
               <Routes>
-              <Route path="/" exact element={<BasePageDesktop/>}/>
+              <Route path="/" exact element={<BasePageDesktop />}/>
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path="/register" exact element={<Register/>}/>
                 <Route path="/sendpage" exact element={<SendPage />}/>

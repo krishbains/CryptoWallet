@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { UserContext } from '../../context/userContext';
 import axios from "axios"
 import { useNavigate } from 'react-router-dom';
+import { useHoldings } from '../Dashboard/Holdings';
 
 export default function BasePageDesktop() {
 
@@ -16,9 +17,17 @@ export default function BasePageDesktop() {
     const [showHelpOverlay, setShowHelpOverlay] = useState(false);
     const [backgroundIndex, setBackgroundIndex] = useState(0);
     const [isCheckingUser, setIsCheckingUser] = useState(true);
-
+    const { holdings, loading } = useHoldings();
+    console.log(holdings)
     const {user, setUser} = useContext(UserContext)
 
+        // Function to format currency
+        const formatCurrency = (value) => {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(value);
+        };
 
     useEffect(() => {
         // Delay the user check for 3 seconds
@@ -189,14 +198,15 @@ export default function BasePageDesktop() {
                                 <Link to="/Dashboard">
                                 <span className="see-all">See All</span>
                                 </Link>
-                                <span className="pound">$3321.75</span>
-                                <span className="eth-6">50 ETH</span>
-                                <span className="pound-7">$66007</span>
-                                <span className="btc-8">2.05 BTC</span>
-                                <span className="pound-9">$97.82</span>
-                                <span className="ltc-price">2.05 LTC</span>
-                                <span className="gbp-price">£4637</span>
-                                <span className="xrp-price">2.05 XRP</span>
+                                <div>
+                                    {holdings.map(holding => (
+                                            <div key={holding.id}>
+                                                <span className="pound">{formatCurrency(holding.current_price)}</span>
+                                                <span className="eth-6">{holding.amount} {holding.symbol}</span>
+                                                {/* Render other details */}
+                                            </div>
+                                        ))}
+                                </div>
                             </div>
                             <div className="flex-column-ef">
                                 <div className="graph-eth" />

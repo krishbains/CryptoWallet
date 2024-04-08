@@ -8,23 +8,7 @@ import './App.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-function Dashboard({ axiosInstance }) {
-
-  useEffect(() => {
-    // Example request using the axios instance passed via props
-    axios.get('/Dashboard')
-      .then(response => {
-        console.log('data is', response.data);
-        // Handle response data
-      })
-      .catch(error => {
-        console.error('Error fetching dashboard data:', error);
-        // Handle error
-      });
-  }, [axios]);
-
-
-
+function Dashboard() {
     const [coins, setCoins] = useState([]);
     const [selectedCoin, setSelectedCoin] = useState(null);
     const [history, setHistory] = useState([]);
@@ -36,14 +20,15 @@ function Dashboard({ axiosInstance }) {
     const holdingsData = [
         { id: 'bitcoin', symbol: 'BTC', amount: 0.5, cost_basis: 30000 }, // replace with actual data
         { id: 'ethereum', symbol: 'ETH', amount: 2, cost_basis: 1500 },
-        { id: 'litecoin', symbol: 'LTC', amount: 1, cost_basis: 1500 },// replace with actual data
+        { id: 'litecoin', symbol: 'LTC', amount: 1, cost_basis: 1500 },
+        { id: 'ripple', symbol: 'XRP', amount: 1, cost_basis: 1500 },// replace with actual data
         // add more coins here...
       ];
 
     const holdings = useMemo(() => holdingsData, []);
   
     useEffect(() => {
-      axiosInstance.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${holdings.map(holding => holding.id).join(',')}`, {
+      axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${holdings.map(holding => holding.id).join(',')}`, {
         headers: {
           'X-CoinAPI-Key': api_key
         }
@@ -61,13 +46,11 @@ function Dashboard({ axiosInstance }) {
           });
           setCoins(updatedHoldings);
           setLoading(false);
-          console.log('Holdings', updatedHoldings)
         })
         .catch(error => {
           console.error('Error fetching data', error);
         });
     }, [holdings]);
-    
   
     const handleCoinSelect = (id) => {
       setLoading(true);
@@ -77,30 +60,29 @@ function Dashboard({ axiosInstance }) {
       // Fetch historical data for the selected date range
       const promises = [];
       const date = new Date(startDate);
+      
       while (date <= endDate) {
-        const formattedDate = `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
-        console.log(formattedDate, "formattedDate");
-        console.log(date, "Date");
-        const promise = axiosInstance.get(`http://localhost:3000/api/v3/coins/${id}/history?date=${formattedDate}`, {
+        const day = date.getDate();
+        const month = date.getMonth();
+        const year = date.getFullYear();
+    
+        const promise = axios.get(`http://localhost:3000/api/v3/coins/${id}/history?date=${year}-${month + 1}-${day}`, {
           headers: {
             'X-CoinAPI-Key': api_key
           }
         })
-          .then(response => {
-            const price = response.data.market_data.current_price.usd;
-            return [Date.parse(formattedDate), price];
-          })
-          .catch(error => {
-            console.error('Error fetching historical data', error);
-            return [Date.parse(formattedDate), 0]; // Return a default value
-          });
+        .then(response => {
+          const price = response.data.market_data.current_price.usd;
+          return [date.getTime(), price]; // Using getTime() to get milliseconds since epoch
+        })
+        .catch(error => {
+          console.error('Error fetching historical data', error);
+          return [date.getTime(), 0]; // Return a default value
+        });
     
         promises.push(promise);
-
         date.setDate(date.getDate() + 1); // Increment the date
-        console.log("promise", history)
       }
-      
     
       Promise.all(promises)
         .then(history => {
@@ -112,7 +94,7 @@ function Dashboard({ axiosInstance }) {
     return (
       <div className="App">
         <header className="App-header">
-          <NewsTicker axiosInstance={axiosInstance}/>
+          <NewsTicker />
           <h1>Crypto Dashboard</h1>
           {loading ? (
             <p style={{color: 'white'}}>Loading...</p>
