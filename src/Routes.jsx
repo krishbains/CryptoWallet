@@ -12,8 +12,8 @@ import {Toaster} from 'react-hot-toast'
 import{UserContextProvider} from "./context/userContext.jsx"
 import { UserContext } from './context/userContext';
 import { LiveChat } from './components/chat/LiveChat.js';
-import Withdraw_page from './components/WithdrawPage/withdraw_page.jsx'
 import Deposit_page from './depositepage/depositepage.jsx';
+import Withdraw_page from './components/withdrawPage/withdrawpage.jsx';
 
 
 
@@ -45,7 +45,7 @@ export const AppRoute = () =>{
                 <Route path="/register" exact element={<Register/>}/>
                 <Route path="/sendpage" exact element={<SendPage />}/>
                 <Route path='/deposit' exact element = {<Deposit_page/>}/>
-                <Route path='/withdraw' exact element = {<Withdraw_page/>}/>
+                <Route path="/withdraw" exact element = {<Withdraw_page/>}/>
                 <Route path="/Dashboard" exact element={<Dashboard axiosInstance={createDashboardAxios()} />}/>
                 <Route path="/transactionhistory" exact element={<TransactionHistoryPage />}/>
               </Routes>

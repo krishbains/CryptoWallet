@@ -4,10 +4,12 @@ import useMetaMask from '../components/hooks/metaMaskHook';
 import Animate_page from '../Animate-page';
 
 export default function Deposit_page() {
+  const [newbalance, setnewbalance] = useState(0);
   const {
     web3,
     account,
     receiver,
+    balance,
     amount,
     loading,
     error,
@@ -24,9 +26,8 @@ export default function Deposit_page() {
       console.error('Web3 is not initialized');
       return;
     }
-    setSending(true);
-    await sendTransaction();
-    setSending(false);
+    setnewbalance(balance + amount)
+    handleInputChange(balance, newbalance)
   };
 
   return (
