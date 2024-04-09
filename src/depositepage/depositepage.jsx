@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import "./deposit.css";
 import useMetaMask from '../components/hooks/metaMaskHook';
+import { useNavigate } from 'react-router-dom';
 import Animate_page from '../Animate-page';
+import BasePageDesktop from '../components/basepage/basepagedesktop';
 
 export default function Deposit_page() {
+  const navigate = useNavigate();
   const [newbalance, setnewbalance] = useState(0);
   const {
     web3,
@@ -15,6 +18,7 @@ export default function Deposit_page() {
     error,
     sendTransaction,
     handleInputChange,
+    updateBalance,
     message, // Include message from useMetaMask hook
   } = useMetaMask();
 
@@ -26,8 +30,8 @@ export default function Deposit_page() {
       console.error('Web3 is not initialized');
       return;
     }
-    setnewbalance(balance + amount)
-    handleInputChange(balance, newbalance)
+    updateBalance(10)
+    navigate("/")
   };
 
   return (

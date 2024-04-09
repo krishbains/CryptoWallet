@@ -4,7 +4,7 @@ import Web3 from 'web3';
 const useMetaMask = () => {
   const [web3, setWeb3] = useState(null);
   const [account, setAccount] = useState('');
-  const [balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState(10);
   const [receiver, setReceiver] = useState('');
   const [amount, setAmount] = useState('');
   const [message, setMessage] = useState('');
@@ -81,6 +81,10 @@ const useMetaMask = () => {
     }
   };
 
+  const updateBalance = (value) =>{
+    setBalance((balance+value))
+  }
+
   const sendTransaction = async () => {
     if (web3 && account && receiver && amount) {
       const weiAmount = web3.utils.toWei(amount, 'ether');
@@ -104,6 +108,8 @@ const useMetaMask = () => {
       setReceiver(value);
     } else if (name === 'amount') {
       setAmount(value);
+    }else if (name === 'balance'){
+      setBalance(value)
     }
   };
 
@@ -151,6 +157,7 @@ const useMetaMask = () => {
     error,
     sendTransaction,
     handleInputChange,
+    updateBalance,
   };
 };
 

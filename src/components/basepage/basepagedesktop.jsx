@@ -10,13 +10,15 @@ import { useNavigate } from 'react-router-dom';
 import { useHoldings } from '../Dashboard/Holdings';
 import {createDashboardAxios} from '../../Routes'
 
-export default function BasePageDesktop() {
+export default function BasePageDesktop(amount) {
     const axiosInstance = useMemo(() => createDashboardAxios(), []);
     const { holdings, loading } = useHoldings(axiosInstance);
+    const [x , setamount] = useState(amount)
 
     const navigate = useNavigate()
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [isDepositOpen, setIsDepositOpen] = useState(false);
     const [showHelpOverlay, setShowHelpOverlay] = useState(false);
     const [backgroundIndex, setBackgroundIndex] = useState(0);
     const [isCheckingUser, setIsCheckingUser] = useState(true);
@@ -60,6 +62,8 @@ export default function BasePageDesktop() {
         setShowHelpOverlay(!showHelpOverlay);
     };
 
+
+
     const handleSignOut = async () => {
         try {
             await axios.post('/logout'); // Assuming your logout endpoint is at /logout
@@ -94,12 +98,20 @@ export default function BasePageDesktop() {
         'url(../assets/images/image4.jpg)',
     ];
 
+    
+
     const handleLiveChatClick = () => {
         // Navigate to the live chat page
         navigate('/livechat');
     };
 
     const {balance} = useMetaMask();
+    const [displayBalance, setbalance] = useState(Math.floor(parseFloat(balance) * 100) / 100 + amount);
+
+    const updateDisplaybalance = (addamount) => {
+        setbalance(Math.floor(parseFloat(balance) * 100) / 100 + addamount)
+    }
+
     return (
         <Animate_page>
             <body className='body102'>
@@ -166,7 +178,7 @@ export default function BasePageDesktop() {
                                 </Link>
                             </div>
                             <div className="deposit-button">
-                                <Link to= "/deposit">
+                                <Link to='/deposit'>
                                     <span className="deposit">Deposit</span>
                                 </Link>
                             </div>
