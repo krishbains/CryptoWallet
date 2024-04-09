@@ -11,24 +11,36 @@
   box-sizing: border-box;
 }
 
-input1,
-select1,
-textarea1,
-button1 {
+.input1,
+.select1,
+.textarea1,
+.button1 {
   outline: 0;
 }
 
 .main-container1 {
   position: relative;
-  width: 375px;
-  height: 812px;
+  width: 1280px;
+  height: 720px;
   margin: 0 auto;
+  box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.25);
+  margin-top: 2%;
 }
 
-.main-frame-background1 {
+.main-frame-background4 {
+  position: absolute;
+  width: 1280px;
+  height: 760px;
+  margin: 0 0 0 0;
+  background: #262626;
+  z-index: 1;
+  overflow: visible auto;
+  border-radius: 7px;
+}
+.main-container-frame2024{
   position: relative;
-  width: 374.944px;
-  height: 812px;
+  width: 1280px;
+  height: 760px;
   margin: 0 0 0 0;
   background: #262626;
   z-index: 1;
@@ -45,7 +57,15 @@ button1 {
   z-index: 3;
   border-radius: 7px 7px 0 0;
 }
-
+.big-account-bar2024 {
+  position: absolute;
+  width: 1280px;
+  height: 58px;
+  background: #222222;
+  z-index: 3;
+  border-radius: 7px 7px 0 0;
+  
+}
 .account1 {
   display: flex;
   align-items: flex-start;
@@ -62,6 +82,7 @@ button1 {
   text-align: left;
   white-space: nowrap;
   z-index: 4;
+  margin-left: 120.5%;
 }
 
 .vector1 {
@@ -85,6 +106,7 @@ button1 {
   z-index: 10;
   border-radius: 16px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  margin-left: 36%;
 }
 
 .transaction-history1 {
@@ -92,7 +114,7 @@ button1 {
   width: 76.23%;
   height: 68.22%;
   bottom: -30.84%;
-  left: 12.78%;
+  left: 11.78%;
   cursor: pointer;
   color: #272727;
   font-family: Poppins, var(--default-font-family1);
@@ -103,12 +125,14 @@ button1 {
   background: transparent;
   border: none;
   z-index: 11;
+  margin-bottom: 10.5%;
+  
 }
 
 .transaction-details-background1 {
   position: relative;
   width: 350px;
-  height: 558px;
+  height: 500px;
   margin: 33px 0 0 14px;
   background: url(../assets/images/080edce0-6464-4538-901a-cff2fcb1b786.png) no-repeat center;
   background-size: cover;
@@ -116,6 +140,7 @@ button1 {
   padding: 20px;
   border-radius: 10px;
   overflow-y: auto;
+  margin-left: 35.5%;
 }
 
 .transaction-list1 {

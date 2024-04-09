@@ -4,9 +4,10 @@ import axios from 'axios';
 import NewsTicker from './News';
 import CoinDetails from './CoinDetails';
 import './App.css';
-// import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import Animate_page from '../../Animate-page';
 
 function Dashboard({ axiosInstance }) {
 
@@ -110,17 +111,19 @@ function Dashboard({ axiosInstance }) {
     };
   
     return (
-      <div className="App">
-        <header className="App-header">
+      <Animate_page>
+      <body className='body103'>
+      <div className="App103">
+        <header className="news-header">
           <NewsTicker axiosInstance={axiosInstance}/>
-          <h1>Crypto Dashboard</h1>
+          <h1 className='h101'>Crypto Dashboard</h1>
           {loading ? (
-            <p style={{color: 'white'}}>Loading...</p>
+            <p style={{color: 'white'}}>Api request limit exceeded. Kindly refresh after a while...</p>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100vh' }}>
               <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', height: '100%' }}>
                 <div style={{ flex: 1, border: '1px solid black', margin: '10px', padding: '20px', borderRadius: '10px', boxSizing: 'border-box' }}>
-                  <h2>Trends</h2>
+                  <h2 className='h202'>Trends</h2>
                   <select value={selectedCoin ? selectedCoin.id : ''} onChange={e => handleCoinSelect(e.target.value)}>
                     {coins.map(coin => (
                       <option key={coin.id} value={coin.id}>{coin.name} ({coin.symbol.toUpperCase()})</option>
@@ -135,6 +138,8 @@ function Dashboard({ axiosInstance }) {
           )}
         </header>
       </div>
+      </body>
+      </Animate_page>
     );
   }
 

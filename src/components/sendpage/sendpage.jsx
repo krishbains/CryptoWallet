@@ -33,9 +33,12 @@ export default function SendPage() {
     <Animate_page>
     <div className='main-container2'>
       <div className='main-frame-background2'>
+        <div className='form-container104'>
+        <div className='big-account-bar'>
         <div className='account-bar2'>
           <span className='account2'>Account123</span>
           <div className='vector2' />
+        </div>
         </div>
         <div className='rectangle2'>
           <p className='transfer-token2'>Transfer Token</p>
@@ -79,77 +82,9 @@ export default function SendPage() {
           </form>
           {error && <p className='error-message2'>Error: {error}</p>}
         </div>
+        </div>
       </div>
     </div>
     </Animate_page>
   );
 }
-
-
-
-// import React, { useState } from 'react';
-// import useMetaMask from '../hooks/metaMaskHook';
-
-// const SendTransactionForm = () => {
-//   const {
-//     web3,
-//     account,
-//     balance,
-//     receiver,
-//     amount,
-//     message,
-//     loading,
-//     error,
-//     sendTransaction,
-//     handleInputChange,
-//   } = useMetaMask();
-
-//   const [sending, setSending] = useState(false);
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     if (!web3) {
-//       console.error('Web3 is not initialized');
-//       return;
-//     }
-//     setSending(true);
-//     await sendTransaction();
-//     setSending(false);
-//   };
-
-//   return (
-//     <div>
-//       <h2>Send Ether</h2>
-//       <form onSubmit={handleSubmit}>
-//         <div>
-//           <label htmlFor="receiver">Receiver Address:</label>
-//           <input
-//             type="text"
-//             id="receiver"
-//             value={receiver}
-//             onChange={(e) => handleInputChange('receiver', e.target.value)}
-//             required
-//           />
-//         </div>
-//         <div>
-//           <label htmlFor="amount">Amount (Ether):</label>
-//           <input
-//             type="number"
-//             id="amount"
-//             value={amount}
-//             onChange={(e) => handleInputChange('amount', e.target.value)}
-//             required
-//           />
-//         </div>
-//         <button type="submit" >
-//           {sending ? 'Sending...' : 'Send'}
-//         </button>
-//       </form>
-//       {message && <p>{message}</p>}
-//       {error && <p>Error: {error}</p>}
-//     </div>
-//   );
-// };
-
-// export default SendTransactionForm;
-

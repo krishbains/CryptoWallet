@@ -1,15 +1,13 @@
 import React from 'react';
 import { AppRoute } from './Routes';
-// import Dashboard from './components/Dashboard/Dashboard';
-import Register from './components/createwallet/Register';
-import CreateWallet from './components/createwallet/Login';
+// import { LiveChat} from './components/chat/LiveChat';
 const App = () => {
 
 
   return(
+    // <CryptoPriceGraph/>
     <AppRoute/>
-    // <Register/>,
-    // <CreateWallet/>
+    // <LiveChat/>
   );
 };
 

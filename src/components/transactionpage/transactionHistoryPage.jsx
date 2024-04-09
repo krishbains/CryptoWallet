@@ -21,7 +21,9 @@ export default function TransactionHistoryPage() {
     return (
         <Animate_page>
         <div className='main-container1'>
-            <div className='main-frame-background1'>
+            <div className='main-frame-background4'>
+            <div className='main-container-frame2024'>
+                <div className='big-account-bar2024'>
                 <div className='account-bar1'>
                     <span className='account1'>Account123</span>
                     <div className='vector1' />
@@ -42,6 +44,8 @@ export default function TransactionHistoryPage() {
                         ))}
                     </ul>
                 </div>
+                </div>
+            </div>
             </div>
         </div>
         </Animate_page>

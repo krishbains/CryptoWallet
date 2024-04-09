@@ -1,4 +1,4 @@
-import React, { useState ,useContext,useEffect} from 'react';
+import React, { useState ,useContext,useEffect, useMemo} from 'react';
 import './basepage_desktop.css';
 import useMetaMask from '../hooks/metaMaskHook';
 import { Link } from 'react-router-dom';
@@ -8,8 +8,11 @@ import { UserContext } from '../../context/userContext';
 import axios from "axios"
 import { useNavigate } from 'react-router-dom';
 import { useHoldings } from '../Dashboard/Holdings';
+import {createDashboardAxios} from '../../Routes'
 
 export default function BasePageDesktop() {
+    const axiosInstance = useMemo(() => createDashboardAxios(), []);
+    const { holdings, loading } = useHoldings(axiosInstance);
 
     const navigate = useNavigate()
 
@@ -17,8 +20,8 @@ export default function BasePageDesktop() {
     const [showHelpOverlay, setShowHelpOverlay] = useState(false);
     const [backgroundIndex, setBackgroundIndex] = useState(0);
     const [isCheckingUser, setIsCheckingUser] = useState(true);
-    const { holdings, loading } = useHoldings();
-    console.log(holdings)
+    
+    console.log('holdings', holdings)
     const {user, setUser} = useContext(UserContext)
 
         // Function to format currency
@@ -91,17 +94,15 @@ export default function BasePageDesktop() {
         'url(../assets/images/image4.jpg)',
     ];
 
-    const {
-        balance,
-    } = useMetaMask();
+    const handleLiveChatClick = () => {
+        // Navigate to the live chat page
+        navigate('/livechat');
+    };
 
-    // // Render loading state if user context is not available
-    // if (!user) {
-    //     return <div>Loading...</div>;
-    // }
-
+    const {balance} = useMetaMask();
     return (
         <Animate_page>
+            <body className='body102'>
             <div className="Background">
                 <div className="main-container">
                     <div className="main-frame-background">
@@ -120,8 +121,9 @@ export default function BasePageDesktop() {
                                     exit={{ x: -200 }}
                                 >
                                     {/* Add your drawer content here */}
-                                    <span className='drawer_object1' onClick={handleSignOut}>Sign out</span>
+                                    <span className='drawer_object1' onClick={handleLiveChatClick}>Live Chat</span>
                                     <span className='drawer_object2'onClick={handleHelpClick}>Help</span>
+                                    <span className='drawer_object2' onClick={handleSignOut}>Sign out</span>
                                 </motion.div>
                             )}
                         </AnimatePresence>
@@ -218,6 +220,7 @@ export default function BasePageDesktop() {
                     </div>
                 </div>
             </div>
+            </body>
         </Animate_page>
     );
 }

@@ -1,11 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 
-axios.defaults.baseURL= 'http://localhost:8000';
-axios.defaults.withCredentials = false
-export function useHoldings() {
+export function useHoldings(axiosInstance) {
+    const memoizedAxios = useMemo(() => axiosInstance, [axiosInstance]);
     const [holdings, setHoldings] = useState([]); // State to hold holdings data
     const [loading, setLoading] = useState(true); // State to track loading status
+
+    
 
     useEffect(() => {
         const holdingsData = [
@@ -17,7 +18,7 @@ export function useHoldings() {
 
         const api_key = 'CG-QC4nGogMEck7vDeuvmnaW5Ww'; // Provide your API key here
 
-        axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${holdingsData.map(holding => holding.id).join(',')}`, {
+        memoizedAxios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${holdingsData.map(holding => holding.id).join(',')}`, {
             headers: {
                 'X-CoinAPI-Key': api_key
             }
@@ -40,7 +41,7 @@ export function useHoldings() {
             console.error('Error fetching data', error);
             setLoading(false); // Update loading state in case of error
         });
-    }, []);
+    }, [axiosInstance]);
 
-  return { holdings, loading };
+    return { holdings, loading };
 }

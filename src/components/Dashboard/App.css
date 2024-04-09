@@ -1,12 +1,15 @@
 body {
+  background-color: #282c34;
+}
+.body103{
   font-family: Arial, sans-serif;
 }
 
-.App {
+.App103 {
   text-align: center;
 }
 
-.App-header {
+.news-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,11 +25,12 @@ body {
   background-color: #b10000;
   text-decoration: none;
   display: inline-block;
+  height: 70px;
   margin-right: 10px;
   border-radius: 3px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease-in-out;
-  color: #690c0c; /* Make the text really black */
+  color: #ffffff; /* Make the text really black */
 }
 
 .news-ticker:hover {
@@ -46,7 +50,7 @@ body {
   color: rgba(18, 15, 4, 0.932);
 }
 
-h1, h2, h3 {
+.h101, .h202, h3 {
   color: rgba(255, 255, 255, 0.842);
 
   margin: 30px;
