@@ -12,7 +12,7 @@ import {Toaster} from 'react-hot-toast'
 import{UserContextProvider} from "./context/userContext.jsx"
 import { UserContext } from './context/userContext';
 import { LiveChat } from './components/chat/LiveChat.js';
-import Withdraw_page from './components/withdrawPage/withdraw_page.jsx';
+import Withdraw_page from './components/WithdrawPage/withdraw_page.jsx'
 import Deposit_page from './depositepage/depositepage.jsx';
 
 

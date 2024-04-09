@@ -38,7 +38,7 @@ export const LiveChat = () => {
             <SignOut />
         </header>
 
-        <section>
+        <section className='section101'>
             {user ? <ChatRoom /> : <SignIn />}
         </section>
 
