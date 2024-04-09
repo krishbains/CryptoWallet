@@ -697,7 +697,7 @@
     left: 0;
     width: 200px; /* Adjust width as needed */
     height: 100%;
-    background-color: #333; /* Background color of the drawer */
+    background: #242426ec; /* Background color of the drawer */
     z-index: 100; /* Ensure it's above other content */
     transition: transform 0.1s ease-out; /* Add animation for smooth transition */
     transform: translateX(0); /* Initially hide the drawer */
@@ -715,7 +715,7 @@
 }
 .drawer_object1:hover,
 .drawer_object2:hover {
-  color: #ccc; /* Change text color on hover */
+  color: #9a9898; /* Change text color on hover */
 }
 
 .drawer_object1{
