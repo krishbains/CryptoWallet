@@ -36,6 +36,10 @@ export default function Register() {
     navigate("/Login");
   }
 
+  const xyz = () => {
+    navigate("/sendpage")
+  }
+
   return (
             <Animate_page>
               <div className='main-container'>
@@ -50,7 +54,7 @@ export default function Register() {
                       <input type="password" className="confirm-password" name="password" placeholder="Enter your password" value={data.password} onChange={(e) => setData({...data, password: e.target.value})} />
                     </div>
                     <div className='continue-button'>
-                      <button type="submit" className='continue'>Sign up</button>
+                      <button onClick={xyz}type="submit" className='continue'>Sign up</button>
                       <button onClick={handleLogin} className='continue1'>Already Registered? Sign in</button>
                     </div>
                     </form>

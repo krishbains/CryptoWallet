@@ -166,10 +166,14 @@ export default function BasePageDesktop() {
                                 </Link>
                             </div>
                             <div className="deposit-button">
-                                <span className="deposit">Deposit</span>
+                                <Link to= "/deposit">
+                                    <span className="deposit">Deposit</span>
+                                </Link>
                             </div>
                             <div className="withdraw-button">
-                                <span className="withdraw">Withdraw</span>
+                                <Link to= "/withdraw">
+                                    <span className="withdraw">Withdraw</span>
+                                </Link>
                             </div>
                         </div>
                         <div className="holdings-background">
