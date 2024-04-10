@@ -1,0 +1,109 @@
+body {
+  background-color: #282c34;
+}
+.body103{
+  font-family: Arial, sans-serif;
+}
+
+.App103 {
+  text-align: center;
+}
+
+.news-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+}
+
+.news-ticker {
+  font-size: 0.9em; /* Adjust the font size */
+  padding: 5px; /* Adjust the padding */
+  background-color: #b10000;
+  text-decoration: none;
+  display: inline-block;
+  height: 70px;
+  margin-right: 10px;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out;
+  color: #ffffff; /* Make the text really black */
+}
+
+.news-ticker:hover {
+  transform: scale(1.05);
+}
+
+.news-ticker h1 {
+  margin: 0;
+  font-size: 1em; /* Adjust the font size */
+  font-weight: bold;
+}
+
+.news-ticker p {
+  margin: 2;
+  font-size: 0.7em; /* Adjust the font size */
+  text-align: left; /* Align the text to the left */
+  color: rgba(18, 15, 4, 0.932);
+}
+
+.h101, .h202, h3 {
+  color: rgba(255, 255, 255, 0.842);
+
+  margin: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #111111;
+  padding: 8px;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #d4aeae;
+}
+
+.coin-details {
+  margin-top: 20px;
+}
+
+.ReactDatePicker {
+  font-size: 1em;
+}
+
+.ReactDatePicker input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.price-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}

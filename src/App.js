@@ -1,17 +1,14 @@
-import './App.css';
-import BasePage from './components/basepage/basepage';
-import StartingPage from './components/startingpage/startingpage';
-import CreateWallet from './components/createwallet/createwallet';
+import React from 'react';
+import { AppRoute } from './Routes';
+// import { LiveChat} from './components/chat/LiveChat';
+const App = () => {
 
-function App() {
-  return (
-    <div className="App">
-      {/* uncomment these to see what each page looks like, we will implement routing across all pages, soon enough */}
-      <BasePage/>
-      {/* <StartingPage/> */}
-      {/* <CreateWallet /> */}
-    </div>
+
+  return(
+    // <CryptoPriceGraph/>
+    <AppRoute/>
+    // <LiveChat/>
   );
-}
+};
 
 export default App;

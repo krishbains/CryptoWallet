@@ -1,0 +1,257 @@
+:root {
+    --default-font-family2: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+      "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+      "Source Han Sans CN", sans-serif;
+  }
+  
+  .main-container5 {
+    overflow: hidden;
+  }
+  
+  .main-container5,
+  .main-container5 * {
+    box-sizing: border-box;
+  }
+  
+  .input5,
+  .select5,
+  .textarea5,
+  .button5 {
+    outline: 0;
+  }
+  
+  .main-container5 {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    margin: 0 auto;
+    box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.25);
+    margin-top: 2%;
+  }
+  .main-frame-background5 {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background: #262626;
+    z-index: 1;
+    overflow: visible auto;
+    border-radius: 7px;
+    
+  }
+  .form-container105{
+    position: relative;
+    margin-left: 35.5%;
+  }
+  .big-account-bar5{
+    position: relative;
+    width: 1280px;
+    height: 58px;
+    margin: 0 0 0 0;
+    margin-left: -55%;
+    background: #222222;
+    z-index: 3;
+    border-radius: 7px 7px 0 0;
+  }
+  .account-bar5 {
+    position: relative;
+    width: 375px;
+    height: 58px;
+    margin: 0 0 0 0;
+    background: #222222;
+    z-index: 3;
+    border-radius: 7px 7px 0 0;
+  }
+  .account5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 47.455px;
+    top: 5.273px;
+    left:155%;
+    color: #ffffff;
+    font-family: Kantumruy, var(--default-font-family2);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 36.133px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 4;
+  }
+  .vector5 {
+    position: absolute;
+    width: 10.50%;
+    height: 65.91%;
+    top: 20.55%;
+    left: 1.62%;
+    background: url(../assets/images/backbutton.svg) no-repeat center;
+    background-size: 100% 100%;
+    z-index: 6;
+  }
+  .rectangle5 {
+    position: relative;
+    width: 329.601px;
+    height: 55.636px;
+    margin: auto;
+    background: #74dd98;
+    border: 2px solid #2e2e2e;
+    z-index: 31;
+    border-radius: 16px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    margin-left: 36.5%;
+    margin-top: 2%
+  }
+  .transfer-token5 {
+    align-self: center;
+    color: #272727;
+    font-family: Poppins, var(--default-font-family2);
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 5px;
+    white-space: nowrap;
+    background: transparent;
+    border: none;
+    z-index: 22;
+    margin-left:-10px;
+    margin-bottom: 25px;
+  }
+  .transaction-details-background5 {
+    width: 350px;
+    height: 437px;
+    margin: 50px 0 0 14px;
+    margin-left: 35.5%;
+    font-size: 0px;
+    background-size: cover;
+    background: url(../assets/images/080edce0-6464-4538-901a-cff2fcb1b786.png) no-repeat center;
+    z-index: 8;
+    overflow: visible auto;
+    border-radius:7.5px;
+  }
+  .token-amount5 {
+    display: block;
+    position: relative;
+    height: 19px;
+    margin: 51px 0 0 7px;
+    color: #ffffff;
+    font-family: Inter, var(--default-font-family2);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 12;
+    margin-top: 20%
+  }
+  .password-input-15 {
+    position: relative;
+    width: 335.366px;
+    height: 41px;
+    margin: 9px 0 0 7px;
+    background: #181818;
+    border: 1px solid #2e2e2e;
+    z-index: 10;
+    border-radius: 5px;
+    box-sizing: content-box;
+  }
+  .token-amount-input5 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 19px;
+    top: 11px;
+    left: 21px;
+    color: #606060;
+    font-family: Inter, var(--default-font-family2);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16.943px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 11;
+  }
+    .rectangle-25 {
+      position: relative;
+      width: 154px;
+      height: 56px;
+      margin: 51px 0 0 97px;
+      background: #74dd98;
+      border: 2px solid #2e2e2e;
+      z-index: 18;
+      border-radius: 16px;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    }
+    .send5 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 56px; /* Adjust the height as needed */
+      color: #272727;
+      font-family: Poppins, var(--default-font-family);
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 36px;
+      text-align: center;
+      background-color: #74dd98; /* Button background color */
+      border: none; /* Remove border */
+      border-radius: 16px;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+  }
+  
+  
+    .wallet-address5, .token-amount-input5 {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: absolute;
+      height: 19px;
+      top: 11px;
+      left: 21px;
+      color: #606060;
+      font-family: Inter, var(--default-font-family);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 16.943px;
+      text-align: left;
+      white-space: nowrap;
+      z-index: 15;
+      border: none; /* Remove border */
+      background: transparent; /* Set background to transparent */
+      width: calc(100% - 42px); /* Set width to match black box */
+  }
+  .success-message5 {
+      position: absolute;
+      top: 160px; /* Adjust this value to position the message appropriately */
+      left: 50%; /* Center horizontally */
+      transform: translateX(-50%);
+      background-color: #272727;
+      color: #74dd98;
+      font-family: Poppins, var(--default-font-family);
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 24px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      z-index: 20; /* Ensure it's above other elements */
+    }
+    .error-message4 {
+      position: relative;
+      bottom: 70px; /* Adjust this value to position the message appropriately */
+      left: 50%; /* Center horizontally */
+      transform: translateX(-50%);
+      background-color: #BFC9FF; /* Error message background color */
+      border:solid 2px black;
+      color: #000000; /* Error message text color */
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      z-index: 20; /* Ensure it's above other elements */
+      margin-top: 30%;
+      max-width: 80%;
+    }
