@@ -1,30 +1,27 @@
 import React, { useState ,useContext,useEffect, useMemo} from 'react';
 import './basepage_desktop.css';
 import useMetaMask from '../hooks/metaMaskHook';
-import { Link } from 'react-router-dom';
 import Animate_page from '../../Animate-page';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UserContext } from '../../context/userContext';
 import axios from "axios"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useHoldings } from '../Dashboard/Holdings';
 import {createDashboardAxios} from '../../Routes'
 
-export default function BasePageDesktop(amount) {
+export default function BasePageDesktop() {
     const axiosInstance = useMemo(() => createDashboardAxios(), []);
     const { holdings, loading } = useHoldings(axiosInstance);
-    const [x , setamount] = useState(amount)
 
     const navigate = useNavigate()
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    const [isDepositOpen, setIsDepositOpen] = useState(false);
     const [showHelpOverlay, setShowHelpOverlay] = useState(false);
     const [backgroundIndex, setBackgroundIndex] = useState(0);
     const [isCheckingUser, setIsCheckingUser] = useState(true);
     
     console.log('holdings', holdings)
-    const {user, setUser} = useContext(UserContext)
+    const {user, setUser, localBalance} = useContext(UserContext)
 
         // Function to format currency
         const formatCurrency = (value) => {
@@ -62,8 +59,6 @@ export default function BasePageDesktop(amount) {
         setShowHelpOverlay(!showHelpOverlay);
     };
 
-
-
     const handleSignOut = async () => {
         try {
             await axios.post('/logout'); // Assuming your logout endpoint is at /logout
@@ -98,20 +93,13 @@ export default function BasePageDesktop(amount) {
         'url(../assets/images/image4.jpg)',
     ];
 
-    
-
     const handleLiveChatClick = () => {
         // Navigate to the live chat page
         navigate('/livechat');
     };
+    console.log(localBalance)
 
     const {balance} = useMetaMask();
-    const [displayBalance, setbalance] = useState(Math.floor(parseFloat(balance) * 100) / 100 + amount);
-
-    const updateDisplaybalance = (addamount) => {
-        setbalance(Math.floor(parseFloat(balance) * 100) / 100 + addamount)
-    }
-
     return (
         <Animate_page>
             <body className='body102'>
@@ -121,7 +109,7 @@ export default function BasePageDesktop(amount) {
                         <div className="account-bar">
                             <span className="account">{user && (user.username)}</span>
                             {user && console.log("username is", user.username)}
-                            <div className="vector" onClick={toggleDrawer} />
+                            <div className="vector" onClick={toggleDrawer}/>
                         </div>
                         {/* Drawer Sidebar */}
                         <AnimatePresence>
@@ -149,8 +137,9 @@ export default function BasePageDesktop(amount) {
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
+                                    style={{ borderRadius: '5px' }}
                                 >
-                                <div className="help-content" style={{ backgroundImage: backgroundImages[backgroundIndex] }}>
+                                <div className="help-content" style={{ backgroundImage: backgroundImages[backgroundIndex]}}>
                                     <button className="next-button" onClick={nextBackground}>Next</button>
                                     <button className="prev-button" onClick={prevBackground}>Prev</button>
                                 </div>
@@ -158,14 +147,13 @@ export default function BasePageDesktop(amount) {
                             )}
                         </AnimatePresence>
                         {/* End Help Overlay */}
-
                         <div className="rectangle">
                             <span className="current-balance">Current Balance</span>
                             <Link to="/transactionhistory">
                                 <div className="flex-row">
                                     <div className="arrow-up" />
                                     <span className="currency-amount">
-                                        {Math.floor(parseFloat(balance) * 100) / 100} ETH
+                                    {((Math.floor(parseFloat(balance) * 100) / 100) + localBalance) > 0 ? ((Math.floor(parseFloat(balance) * 100) / 100) + localBalance) : 0 } ETH
                                     </span>
                                     <span className="percentage">10.2%</span>
                                 </div>
@@ -178,7 +166,7 @@ export default function BasePageDesktop(amount) {
                                 </Link>
                             </div>
                             <div className="deposit-button">
-                                <Link to='/deposit'>
+                                <Link to= "/deposit">
                                     <span className="deposit">Deposit</span>
                                 </Link>
                             </div>
@@ -214,16 +202,27 @@ export default function BasePageDesktop(amount) {
                             </div>
                             <div className="flex-column-caa">
                                 <Link to="/Dashboard">
-                                <span className="see-all">See All</span>
+                                <span className="see-all">Advanced analytics</span>
                                 </Link>
                                 <div>
-                                    {holdings.map(holding => (
+                                    {holdings.length != 0 ? holdings.map(holding => (
                                             <div key={holding.id}>
                                                 <span className="pound">{formatCurrency(holding.current_price)}</span>
                                                 <span className="eth-6">{holding.amount} {holding.symbol}</span>
                                                 {/* Render other details */}
                                             </div>
-                                        ))}
+                                        )) :  
+                                            <div>
+                                                <span className="pound" style={{ fontSize: '11px' }}>Too many requests..</span>
+                                                <span className="eth-6" style={{ fontSize: '10px' }}>please refresh shortly</span>
+                                                <span className="pound" style={{ fontSize: '11px' }}>Too many requests..</span>
+                                                <span className="eth-6" style={{ fontSize: '10px' }}>please refresh shortly</span>
+                                                <span className="pound" style={{ fontSize: '11px' }}>Too many requests..</span>
+                                                <span className="eth-6" style={{ fontSize: '10px' }}>please refresh shortly</span>
+                                                <span className="pound" style={{ fontSize: '11px' }}>Too many requests..</span>
+                                                <span className="eth-6" style={{ fontSize: '10px' }}>please refresh shortly</span>
+                                            </div>
+                                        }
                                 </div>
                             </div>
                             <div className="flex-column-ef">

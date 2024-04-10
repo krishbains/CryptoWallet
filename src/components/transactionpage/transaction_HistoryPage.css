@@ -87,11 +87,11 @@
 
 .vector1 {
   position: absolute;
-  width: 7.07%;
-  height: 40.91%;
-  top: 29.55%;
-  left: 4.62%;
-  background: url(../assets/images/45246d70-5334-4404-8daa-30d76e51f1e5.png) no-repeat center;
+  width: 10.50%;
+  height: 65.91%;
+  top: 20.55%;
+  left: 1.62%;
+  background: url(../assets/images/backbutton.svg) no-repeat center;
   background-size: 100% 100%;
   z-index: 6;
 }
@@ -115,7 +115,7 @@
   height: 68.22%;
   bottom: -30.84%;
   left: 11.78%;
-  cursor: pointer;
+  cursor:default;
   color: #272727;
   font-family: Poppins, var(--default-font-family1);
   font-size: 24px;

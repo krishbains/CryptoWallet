@@ -2,7 +2,7 @@ import React from 'react';
 import "./transaction_HistoryPage.css";
 import useMetaMask from '../hooks/metaMaskHook';
 import Animate_page from '../../Animate-page';
-
+import { useNavigate, Link } from 'react-router-dom';
 export default function TransactionHistoryPage() {
     const {
         web3,
@@ -26,7 +26,9 @@ export default function TransactionHistoryPage() {
                 <div className='big-account-bar2024'>
                 <div className='account-bar1'>
                     <span className='account1'>Account123</span>
+                    <Link to='/'>
                     <div className='vector1' />
+                    </Link>
                 </div>
                 <div className='rectangle1'>
                     <p className='transaction-history1'>Transaction History</p>

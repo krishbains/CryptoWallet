@@ -43,12 +43,12 @@
 }
 .form-container104{
   margin-left: 35.5%;
+  
 }
 .big-account-bar{
   position: relative;
   width: 1280px;
   height: 58px;
-  margin: 0 0 0 0;
   margin-left: -55%;
   background: #222222;
   z-index: 3;
@@ -58,7 +58,6 @@
   position: relative;
   width: 375px;
   height: 58px;
-  margin: 0 0 0 0;
   background: #222222;
   z-index: 3;
   border-radius: 7px 7px 0 0;
@@ -73,20 +72,20 @@
   left:155%;
   color: #ffffff;
   font-family: Kantumruy, var(--default-font-family2);
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 400;
   line-height: 36.133px;
   text-align: left;
   white-space: nowrap;
   z-index: 4;
 }
-.vector2 {
+.vector20 {
   position: absolute;
-  width: 7.07%;
-  height: 40.91%;
-  top: 29.55%;
-  left: 4.62%;
-  background: url(../assets/images/45246d70-5334-4404-8daa-30d76e51f1e5.png) no-repeat center;
+  width: 10.50%;
+  height: 65.91%;
+  top: 20.55%;
+  left: 1.62%;
+  background: url(../assets/images/backbutton.svg) no-repeat center;
   background-size: 100% 100%;
   z-index: 6;
 }
@@ -94,14 +93,15 @@
   position: relative;
   width: 329.601px;
   height: 55.636px;
-  margin: 0;
+  left:  3%;
   background: #74dd98;
   border: 2px solid #2e2e2e;
   z-index: 31;
   border-radius: 16px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  margin-top: 3%;
 }
-.transfer-token2 {
+.transfer-token20 {
   position: absolute;
   width: 57.34%;
   height: 68.3%;
@@ -265,13 +265,14 @@
 }
 .success-message2 {
     position: absolute;
-    top: 160px; /* Adjust this value to position the message appropriately */
+    top: 82%; /* Adjust this value to position the message appropriately */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%);
+    width:auto;
     background-color: #272727;
     color: #74dd98;
     font-family: Poppins, var(--default-font-family);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 24px;
     padding: 10px 20px;

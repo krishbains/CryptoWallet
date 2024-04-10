@@ -3,7 +3,7 @@ import TransactionHistoryPage from "./components/transactionpage/transactionHist
 import SendPage from "./components/sendpage/sendpage.jsx";
 import Login from "./components/Login/Login.jsx";
 import BasePageDesktop from "./components/basepage/basepagedesktop.jsx";
-import Register from "./components/Login/Register.jsx";
+import Register from './components/Login/Register.jsx'
 import {BrowserRouter as Router,Routes, Route,Navigate } from "react-router-dom";
 import { AnimatePresence } from 'framer-motion';
 import Dashboard from "./components/Dashboard/Dashboard.js";
@@ -12,8 +12,8 @@ import {Toaster} from 'react-hot-toast'
 import{UserContextProvider} from "./context/userContext.jsx"
 import { UserContext } from './context/userContext';
 import { LiveChat } from './components/chat/LiveChat.js';
-import Deposit_page from './depositepage/depositepage.jsx';
-import Withdraw_page from './components/withdrawPage/withdrawpage.jsx';
+import Withdraw_page from './components/withdrawpage/withdraw_page.jsx';
+import Deposit_page from './components/depositpage/depositpage.jsx';
 
 
 
@@ -29,14 +29,12 @@ export const createDashboardAxios = () => {
 };
 
 export const AppRoute = () =>{
-  const {user} = useContext(UserContext)
-  
     return (
 
         <div>
           <AnimatePresence>
             <UserContextProvider>
-            <Toaster position="bottom-right" toastOptions={{duration: 2000}}/>
+            <Toaster position="center" toastOptions={{duration: 2000}}/>
             <Router>
               <Routes>
               <Route path="/" exact element={<BasePageDesktop />}/>

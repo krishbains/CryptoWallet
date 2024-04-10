@@ -24,7 +24,7 @@ export default function Register() {
         toast.error(data.error)
       } else{
         setData({})
-        toast.success("Login Successful. welcome bro!")
+        toast.success("Registration Successful. welcome bro!")
         navigate('/login')
       }
     } catch(error){
@@ -34,10 +34,6 @@ export default function Register() {
   console.log(data)
   const handleLogin = () => {
     navigate("/Login");
-  }
-
-  const xyz = () => {
-    navigate("/deposit")
   }
 
   return (
@@ -54,7 +50,7 @@ export default function Register() {
                       <input type="password" className="confirm-password" name="password" placeholder="Enter your password" value={data.password} onChange={(e) => setData({...data, password: e.target.value})} />
                     </div>
                     <div className='continue-button'>
-                      <button type="submit" className='continue'>Sign up</button>
+                      <button onClick={registerUser}type="submit" className='continue'>Sign up</button>
                       <button onClick={handleLogin} className='continue1'>Already Registered? Sign in</button>
                     </div>
                     </form>

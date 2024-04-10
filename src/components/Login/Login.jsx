@@ -30,6 +30,7 @@ export default function Login() {
       }else{
         setUser({username});
         navigate('/')
+        toast.success("Login Successful. welcome bro!")
       }
     } catch (error) {
       

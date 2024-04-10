@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './send_page.css';
 import useMetaMask from '../hooks/metaMaskHook';
 import Animate_page from '../../Animate-page';
+import { Link } from 'react-router-dom';
+import { UserContext } from '../../context/userContext';
 
 export default function SendPage() {
   const {
@@ -16,6 +18,8 @@ export default function SendPage() {
     message, // Include message from useMetaMask hook
   } = useMetaMask();
 
+  const {user, setUser} = useContext(UserContext)
+
   const [sending, setSending] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -28,6 +32,7 @@ export default function SendPage() {
     await sendTransaction();
     setSending(false);
   };
+  console.log("error :" , error)
 
   return (
     <Animate_page>
@@ -36,14 +41,17 @@ export default function SendPage() {
         <div className='form-container104'>
         <div className='big-account-bar'>
         <div className='account-bar2'>
-          <span className='account2'>Account123</span>
-          <div className='vector2' />
+          <span className='account2'>{user && (user.username)}</span>
+          <Link to='/'>
+          <div className='vector20' />
+          </Link>
         </div>
         </div>
         <div className='rectangle2'>
-          <p className='transfer-token2'>Transfer Token</p>
+          <p className='transfer-token20'>Transfer Token</p>
         </div>
-        {message && <p className='success-message2'>Success!</p>} {/* Conditionally render Success message */}
+        {message &&<p className='success-message2'>{message}</p>}
+        {/* {error && <p className='error-message2'>Error: {error}</p>} */}
         <div className='transaction-details-background2'>
           <form onSubmit={handleSubmit}>
             <div>
@@ -80,7 +88,7 @@ export default function SendPage() {
               </button>
             </div>
           </form>
-          {error && <p className='error-message2'>Error: {error}</p>}
+          
         </div>
         </div>
       </div>
