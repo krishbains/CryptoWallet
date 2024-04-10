@@ -8,6 +8,11 @@ import axios from "axios"
 import { useNavigate, Link } from 'react-router-dom';
 import { useHoldings } from '../Dashboard/Holdings';
 import {createDashboardAxios} from '../../Routes'
+import image2 from '../assets/images/Send_transactions.png';
+import image5 from '../assets/images/LiveMarketData.png';
+import image3 from '../assets/images/deposit.png';
+import image4 from '../assets/images/withdraw.png';
+import image1 from '../assets/images/CurrentBalance.png';
 
 export default function BasePageDesktop() {
     const axiosInstance = useMemo(() => createDashboardAxios(), []);
@@ -78,24 +83,34 @@ export default function BasePageDesktop() {
             setBackgroundIndex((prevIndex) => prevIndex + 1);
         }
     };
+    console.log(backgroundIndex,'bg i')
 
     const prevBackground = () => {
             // Decrement index to switch to the next background image
-            if (backgroundIndex >= 0){
+            if (backgroundIndex > 0){
             setBackgroundIndex((prevIndex) => prevIndex - 1);
             }
         }
 
-    const backgroundImages = [
-        'url(../assets/images/Send_transactions.png)',
-        'url(../assets/images/Live_Market_Stats.png',
-        'url(../assets/images/image3.jpg)',
-        'url(../assets/images/image4.jpg)',
-    ];
+        const backgroundImages = [
+            `url(${image1})`,
+            `url(${image2})`,
+            `url(${image3})`,
+            `url(${image4})`,
+            `url(${image5})`,
+        ];
 
     const handleLiveChatClick = () => {
         // Navigate to the live chat page
         navigate('/livechat');
+    };
+    const handleHistoryClick = () => {
+        // Navigate to the live chat page
+        navigate('/transactionhistory');
+    };
+    const handleFAQClick = () => {
+        // Navigate to the live chat page
+        navigate('/FAQ');
     };
     console.log(localBalance)
 
@@ -123,6 +138,8 @@ export default function BasePageDesktop() {
                                     {/* Add your drawer content here */}
                                     <span className='drawer_object1' onClick={handleLiveChatClick}>Live Chat</span>
                                     <span className='drawer_object2'onClick={handleHelpClick}>Help</span>
+                                    <span className='drawer_object2' onClick={handleHistoryClick}>Transaction History</span>
+                                    <span className='drawer_object2' onClick={handleFAQClick}>FAQ</span>
                                     <span className='drawer_object2' onClick={handleSignOut}>Sign out</span>
                                 </motion.div>
                             )}

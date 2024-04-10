@@ -10,10 +10,10 @@ import Dashboard from "./components/Dashboard/Dashboard.js";
 import axios from 'axios';
 import {Toaster} from 'react-hot-toast'
 import{UserContextProvider} from "./context/userContext.jsx"
-import { UserContext } from './context/userContext';
 import { LiveChat } from './components/chat/LiveChat.js';
 import Withdraw_page from './components/withdrawpage/withdraw_page.jsx';
 import Deposit_page from './components/depositpage/depositpage.jsx';
+import FAQPage from './components/FAQpage/FAQ.jsx';
 
 
 
@@ -38,6 +38,7 @@ export const AppRoute = () =>{
             <Router>
               <Routes>
               <Route path="/" exact element={<BasePageDesktop />}/>
+                <Route path="/FAQ" exact element={<FAQPage/>}/>
                 <Route path="/livechat" exact element={<LiveChat />}/>
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path="/register" exact element={<Register/>}/>

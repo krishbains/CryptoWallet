@@ -1,0 +1,31 @@
+/* Default styles for FAQPage */
+.faq-page {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+
+    color: #74dd98;
+}
+
+/* Dark gray theme */
+.dark-theme {
+background-color: #333;
+color: #fff;
+}
+
+.dark-theme .question {
+border: 1px solid #666;
+}
+
+/* Green theme */
+.green-theme {
+background-color: #4caf50;
+color: #fff;
+}
+
+.green-theme .question {
+border: 1px solid #388e3c;
+}
+
+.question:hover {
+background-color: #3f3f3f;
+}
