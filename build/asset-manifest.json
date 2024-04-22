@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.abaa72ab.css",
+    "main.js": "/static/js/main.b10299b5.js",
+    "static/js/511.1b368aad.chunk.js": "/static/js/511.1b368aad.chunk.js",
+    "static/media/Send_transactions.png": "/static/media/Send_transactions.57046a3032cdc4c29d7d.png",
+    "static/media/CurrentBalance.png": "/static/media/CurrentBalance.d7fa29929d0e5d7a82bf.png",
+    "static/media/withdraw.png": "/static/media/withdraw.2b4b5a5dda510cf5d539.png",
+    "static/media/LiveMarketData.png": "/static/media/LiveMarketData.5bfe14bd4e6f743d9095.png",
+    "static/media/deposit.png": "/static/media/deposit.c856d891f1f708595d0a.png",
+    "static/media/backbutton.svg": "/static/media/backbutton.fb521a0f3cc8862e7a8d.svg",
+    "index.html": "/index.html",
+    "main.abaa72ab.css.map": "/static/css/main.abaa72ab.css.map",
+    "main.b10299b5.js.map": "/static/js/main.b10299b5.js.map",
+    "511.1b368aad.chunk.js.map": "/static/js/511.1b368aad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.abaa72ab.css",
+    "static/js/main.b10299b5.js"
+  ]
+}
