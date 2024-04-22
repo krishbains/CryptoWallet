@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import "./withdraw.css";
+import "./Withdraw.css";
 import Animate_page from '../../Animate-page';
 import { UserContext } from '../../context/userContext';
 import useMetaMask from '../hooks/metaMaskHook';
